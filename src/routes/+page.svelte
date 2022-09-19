@@ -1,57 +1,27 @@
 <script lang="ts">
-	import Counter from '$lib/Counter.svelte';
+  import List from '$lib/List.svelte';
+  import type { PageData } from '.svelte-kit/types/src/routes/$types';
+  import Code from '../lib/Code.svelte';
+
+  export let data: PageData;
+  $: casks = data.casks;
 </script>
 
-<svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
-</svelte:head>
-
-<section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset="svelte-welcome.webp" type="image/webp" />
-				<img src="svelte-welcome.png" alt="Welcome" />
-			</picture>
-		</span>
-
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
-
-	<Counter />
-</section>
+<main class="page">
+  <form class="grid">
+    <List title="aa" {casks} />
+  </form>
+  <Code />
+</main>
 
 <style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 1;
-	}
-
-	h1 {
-		width: 100%;
-	}
-
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
+  .page {
+    position: relative;
+    margin-inline: auto;
+    max-width: 70rem;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 </style>
