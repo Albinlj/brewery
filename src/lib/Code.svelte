@@ -42,28 +42,47 @@
           {id}
         </span>
       {/each}
+      <span class="caret" />
     </div>
-    <div class="copy">
-      <Icon />
-    </div>
+    <Icon />
   </div>
 </section>
 
 <style>
-  .top-bar {
-    position: sticky;
-    z-index: 100;
-    background-color: hsl(0, 0%, 10%);
-  }
-  .code {
-    display: flex;
-    max-width: var(--max-width);
-    margin: auto;
-    padding-block: 2em;
-    color: greenyellow;
+  .caret {
+    height: 1em;
+    width: calc(var(--font-mono-width) * 1.4);
+    background-color: var(--color-yellow);
+
+    animation: blink-animation 1s steps(2, start) infinite;
   }
 
-  .copy {
+  @keyframes blink-animation {
+    to {
+      visibility: hidden;
+    }
+  }
+
+  .top-bar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+
+    background-color: hsl(0, 0%, 11%);
+    box-shadow: 5px 5px 5px hsl(0, 0%, 0% / 20%);
+
+    z-index: 100;
+  }
+
+  .code {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: var(--max-width);
+    margin: auto;
+    padding-inline: 2em;
+    padding-block: 1em;
+    color: var(--color-yellow);
   }
 
   .terminal {
@@ -72,7 +91,7 @@
     top: 0;
     font-family: var(--font-mono);
     display: flex;
-    gap: 0.5em;
+    gap: var(--font-mono-width);
     flex-wrap: wrap;
   }
   .word {

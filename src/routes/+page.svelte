@@ -15,16 +15,8 @@
 </main>
 
 <style>
-  .page {
-    position: relative;
-    margin-inline: auto;
-    max-height: 100vh;
-
-    display: grid;
-  }
   .grid {
     margin: auto;
     max-width: var(--max-width);
-    overflow: hidden;
   }
 </style>

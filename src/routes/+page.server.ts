@@ -28,6 +28,6 @@ export const load: PageServerLoad = async () => {
         };
       })
       .sort((a, b) => b.installs - a.installs)
-    // .slice(0, 100)
+      .slice(0, 100)
   };
 };

@@ -6,22 +6,31 @@
 
 :root {
   --font-mono: 'Fira Mono', monospace;
+  --font-mono-width: 0.5em;
 
   --color-bg: #121212;
-  --color-primary: #87b87b;
-  --color-secondary: #639b83;
-  --color-inverted: #45628a;
-  --color-accent: highlight;
-  --color-accent: yellow;
+  --color-green: hsl(140, 45%, 70%);
+  --color-yellow: hsl(60, 55%, 70%);
 
-  /* --color-green: #c3f3c0; */
-  --color-green: hsl(110, 80%, 80%);
+  --color-type-10: hsl(0, 0%, 10%);
+  --color-type-20: hsl(0, 0%, 20%);
+  --color-type-30: hsl(0, 0%, 30%);
+  --color-type-40: hsl(0, 0%, 40%);
+  --color-type-50: hsl(0, 0%, 50%);
+  --color-type-60: hsl(0, 0%, 60%);
+  --color-type-70: hsl(0, 0%, 70%);
+  --color-type-80: hsl(0, 0%, 80%);
+  --color-type-90: hsl(0, 0%, 90%);
 
   --max-width: 60rem;
 
   /* @media (prefers-color-scheme: dark) {
     --color-bg: hsl(200, 20%, 10%);
   } */
+}
+
+html {
+  padding: 0;
 }
 
 body {
@@ -32,48 +41,4 @@ body {
 
 * {
   box-sizing: border-box;
-}
-
-button,
-input,
-optgroup,
-select,
-textarea {
-  font-family: inherit; /* 1 */
-  font-size: 100%; /* 1 */
-  line-height: 1.15; /* 1 */
-  margin: 0; /* 2 */
-}
-
-/**
- * Show the overflow in IE.
- * 1. Show the overflow in Edge.
- */
-
-button,
-input {
-  /* 1 */
-  overflow: visible;
-}
-
-/**
- * Remove the inheritance of text transform in Edge, Firefox, and IE.
- * 1. Remove the inheritance of text transform in Firefox.
- */
-
-button,
-select {
-  /* 1 */
-  text-transform: none;
-}
-
-/**
- * Correct the inability to style clickable types in iOS and Safari.
- */
-
-button,
-[type='button'],
-[type='reset'],
-[type='submit'] {
-  -webkit-appearance: button;
 }
