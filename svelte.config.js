@@ -8,8 +8,7 @@ const config = {
   preprocess: [
     preprocess({
       postcss: true
-    }),
-    const cssHasPseudo = require('css-has-pseudo/browser');
+    })
   ],
 
   kit: {
