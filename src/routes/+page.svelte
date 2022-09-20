@@ -8,20 +8,23 @@
 </script>
 
 <main class="page">
-  <form class="grid">
-    <List title="aa" {casks} />
-  </form>
   <Code />
+  <form class="grid">
+    <List {casks} />
+  </form>
 </main>
 
 <style>
   .page {
     position: relative;
     margin-inline: auto;
-    max-width: 70rem;
+    max-height: 100vh;
+
+    display: grid;
   }
   .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    margin: auto;
+    max-width: var(--max-width);
+    overflow: hidden;
   }
 </style>

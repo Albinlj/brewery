@@ -1,0 +1,79 @@
+/* Write your global styles here, in PostCSS syntax */
+
+@import '@fontsource/fira-mono';
+
+@import url('http://fonts.cdnfonts.com/css/open-sans');
+
+:root {
+  --font-mono: 'Fira Mono', monospace;
+
+  --color-bg: #121212;
+  --color-primary: #87b87b;
+  --color-secondary: #639b83;
+  --color-inverted: #45628a;
+  --color-accent: highlight;
+  --color-accent: yellow;
+
+  /* --color-green: #c3f3c0; */
+  --color-green: hsl(110, 80%, 80%);
+
+  --max-width: 60rem;
+
+  /* @media (prefers-color-scheme: dark) {
+    --color-bg: hsl(200, 20%, 10%);
+  } */
+}
+
+body {
+  background-color: hsl(0, 0%, 7%);
+  font-family: 'Open Sans';
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+
+button,
+input {
+  /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+
+button,
+select {
+  /* 1 */
+  text-transform: none;
+}
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  -webkit-appearance: button;
+}

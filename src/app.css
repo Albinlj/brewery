@@ -1,9 +1,0 @@
-@import '@fontsource/fira-mono';
-
-:root {
-  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
-  --font-mono: 'Fira Mono', monospace;
-}
-* {
-  box-sizing: border-box;
-}
