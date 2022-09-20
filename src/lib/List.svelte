@@ -83,29 +83,8 @@
   }
 
   .selected {
-    /* background-color: var(--color-green);
-    --color-type-10: hsl(0, 0%, 10%);
-    --color-type-20: hsl(0, 0%, 10%);
-    --color-type-30: hsl(0, 0%, 10%);
-    --color-type-40: hsl(0, 0%, 10%);
-    --color-type-50: hsl(0, 0%, 10%);
-    --color-type-60: hsl(0, 0%, 10%);
-    --color-type-70: hsl(0, 0%, 10%);
-    --color-type-80: hsl(0, 0%, 10%);
-    --color-type-90: hsl(0, 0%, 10%); */
-    /* border: 0.5px solid var(--color-yellow); */
-
-    background-color: hsl(0, 0%, 12%);
+    opacity: 20%;
   }
-  /* .selected .name {
-    color: var(--color-yellow);
-  }
-  .selected .description {
-    color: var(--color-yellow);
-  }
-  .selected .installs {
-    color: var(--color-yellow);
-  } */
 
   .name {
     color: var(--color-type-90);

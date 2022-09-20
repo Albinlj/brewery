@@ -1,8 +1,16 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
   import { quintOut } from 'svelte/easing';
   import Icon from './Icon.svelte';
+  import Prompt from './Prompt.svelte';
   import { elements } from './stores/elements';
   import { checked } from './stores/stores';
+  import WelcomeMessage from './WelcomeMessage.svelte';
+
+  let copied = false;
+  let mounted = false;
+  let introFinished = false;
+  onMount(() => (mounted = true));
 
   function cmon(node: HTMLElement, { key }: { key: string }) {
     const from = $elements[key]?.getBoundingClientRect();
@@ -25,27 +33,112 @@
 </script>
 
 <section class="top-bar">
-  <div class="code">
-    <div class="terminal">
-      <span class="brew-install">brew install</span>
-      {#each $checked as id (id)}
-        <span
-          on:click={() => {
-            $checked = $checked.filter((a) => a !== id);
-          }}
-          class="word"
-          in:cmon={{ key: id }}
-        >
-          {id}
-        </span>
-      {/each}
-      <span class="caret" />
+  <div class="content">
+    <div class="code">
+      <div>
+        <Prompt />
+        <WelcomeMessage />
+      </div>
+      <span>&nbsp;</span>
+      <Prompt />
+      <div class="brew-install-line " class:invert={copied}>
+        <span class="blue">❯</span>
+
+        <span class="">brew install</span>
+        {#each $checked as id (id)}
+          <span
+            on:click={() => {
+              $checked = $checked.filter((a) => a !== id);
+            }}
+            class="word"
+            in:cmon={{ key: id }}
+          >
+            {id}
+          </span>
+        {/each}
+
+        <span class="caret" />
+      </div>
     </div>
     <Icon />
   </div>
 </section>
 
 <style>
+  :global(a) {
+    color: currentcolor;
+  }
+
+  .invert {
+    filter: invert() brightness(0.6);
+  }
+
+  .top-bar {
+    position: sticky;
+    width: 100%;
+    top: 0;
+
+    background-color: hsl(0, 0%, 11%);
+    box-shadow: 5px 5px 5px hsl(0, 0%, 0% / 20%);
+    z-index: 100;
+  }
+
+  .content {
+    display: flex;
+    gap: 2em;
+    color: var(--color-yellow);
+    color: var(--color-type-70);
+    max-width: var(--max-width);
+    align-items: center;
+    margin: auto;
+    padding-inline: 3em;
+    padding-block: 1em;
+  }
+
+  :global(.red) {
+    color: var(--color-red);
+  }
+  :global(.blue) {
+    color: var(--color-blue);
+  }
+
+  :global(.white) {
+    color: var(--color-type-50);
+  }
+  :global(.green) {
+    color: var(--color-green);
+  }
+  :global(.yellow) {
+    color: var(--color-yellow);
+  }
+
+  .code {
+    margin-top: -1.6em;
+    flex: 1;
+    font-family: var(--font-mono);
+  }
+
+  .brew-install-line {
+    background-color: hsl(0, 0%, 11%);
+    width: 100%;
+    top: 0;
+    display: flex;
+    gap: 0 var(--font-mono-width);
+    flex-wrap: wrap;
+  }
+
+  .word {
+    transform-origin: -25% 0%;
+    z-index: 100;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .word:hover {
+    /* color: var(--color-red); */
+    text-decoration: line-through;
+  }
+
   .caret {
     height: 1em;
     width: calc(var(--font-mono-width) * 1.2);
@@ -58,54 +151,5 @@
     to {
       visibility: hidden;
     }
-  }
-
-  .top-bar {
-    position: sticky;
-    top: 0;
-    width: 100%;
-
-    background-color: hsl(0, 0%, 11%);
-    box-shadow: 5px 5px 5px hsl(0, 0%, 0% / 20%);
-
-    z-index: 100;
-  }
-
-  .code {
-    display: flex;
-    gap: 2em;
-    justify-content: center;
-    align-items: center;
-    max-width: var(--max-width);
-    margin: auto;
-    padding-inline: 3em;
-    padding-block: 1em;
-    color: var(--color-yellow);
-  }
-
-  .terminal {
-    width: 100%;
-    font-size: 0.8rem;
-    top: 0;
-    font-family: var(--font-mono);
-    display: flex;
-    gap: var(--font-mono-width);
-    flex-wrap: wrap;
-  }
-
-  .brew-install {
-    opacity: 0.5;
-  }
-
-  .word {
-    transform-origin: -25% 0%;
-    z-index: 100;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-
-  .settled:hover {
-    color: var(--color-red);
-    text-decoration: line-through;
   }
 </style>
