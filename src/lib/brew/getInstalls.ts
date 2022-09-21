@@ -1,11 +1,10 @@
-export async function getInstalls(days: number) {
-  const res = await fetch(
-    `https://formulae.brew.sh/api/analytics/cask-install/homebrew-cask/${days}d.json`
-  );
+import { brewAxios } from '$lib/brewAxios';
+import a from '../../assets/installs.json';
 
-  const data = await res.json();
-  return data as Root;
-}
+export const getInstalls = (days: number) =>
+  brewAxios.get(`/analytics/cask-install/homebrew-cask/${days}d.json`);
+
+// export const getInstalls = (days: number) => ({ data: a as Root });
 
 export type Root = {
   category: string;

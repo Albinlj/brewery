@@ -2,7 +2,7 @@
 </script>
 
 <div>
-  <span class="green"
+  <span class="yellow"
     ><a href="https://github.com/Albinlj" target="_blank">@albin-ljunghusen</a
     ></span
   >

@@ -46,13 +46,14 @@
     all: unset;
     padding: 0.5rem;
     cursor: pointer;
+    color: var(--color-green);
   }
 
   .copied {
     position: absolute;
     color: var(--color-type-20);
     font-size: 0.8em;
-    background-color: var(--color-yellow);
+    background-color: var(--color-green);
     padding: 0.2em 0.4em;
     padding: 0.2em 0.8em;
     border-radius: 0.6em;

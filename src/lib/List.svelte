@@ -2,15 +2,17 @@
   import { registerElement } from '$lib/stores/elements';
   import { checked } from '$lib/stores/stores';
   import type { Cask } from 'src/routes/+page.server';
+  import { fly } from 'svelte/transition';
 
   export let casks: Cask[];
 </script>
 
 <section class="list">
-  {#each casks as cask (cask.token)}
+  {#each casks.slice(0, 300) as cask (cask.token)}
     <label
       for={cask.token}
       class="item"
+      out:fly={{ x: 5 }}
       class:selected={$checked.includes(cask.token)}
     >
       <input
@@ -20,6 +22,8 @@
         hidden
         type="checkbox"
         bind:group={$checked}
+        class="name"
+        use:registerElement={{ key: cask.token }}
       />
       <h2 class="name" use:registerElement={{ key: cask.token }}>
         {cask.name}
@@ -60,12 +64,10 @@
       'a c'
       'b c';
 
-    @media (min-width: 800px) {
+    /* @media (min-width: 800px) {
       grid-template-columns: 2fr 2fr 1fr;
       grid-template-areas: 'a b c';
-      color: greenyellow;
-      color: #fcffcf;
-    }
+    } */
 
     align-items: center;
 
@@ -83,7 +85,17 @@
   }
 
   .selected {
-    opacity: 20%;
+    --color-type-10: hsl(0, 0%, 10%);
+    --color-type-20: hsl(0, 0%, 10%);
+    --color-type-30: hsl(0, 0%, 10%);
+    --color-type-40: hsl(0, 0%, 10%);
+    --color-type-50: hsl(0, 0%, 10%);
+    --color-type-60: hsl(0, 0%, 10%);
+    --color-type-70: hsl(0, 0%, 10%);
+    --color-type-80: hsl(0, 0%, 10%);
+    --color-type-90: hsl(0, 0%, 10%);
+
+    background-color: var(--color-green);
   }
 
   .name {

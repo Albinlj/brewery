@@ -10,8 +10,10 @@ export type Cask = {
 };
 
 export const load: PageServerLoad = async () => {
-  const casks = await getCasks();
-  const installs = await getInstalls(30);
+  const { data: casks, headers } = await getCasks();
+
+  console.log(headers);
+  const { data: installs } = await getInstalls(30);
 
   return {
     casks: casks
@@ -28,6 +30,5 @@ export const load: PageServerLoad = async () => {
         };
       })
       .sort((a, b) => b.installs - a.installs)
-      .slice(0, 200)
   };
 };

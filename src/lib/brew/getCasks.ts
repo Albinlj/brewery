@@ -1,8 +1,6 @@
-export async function getCasks() {
-  const res = await fetch('https://formulae.brew.sh/api/cask.json');
-  const data = await res.json();
-  return data as Root;
-}
+import { brewAxios } from '$lib/brewAxios';
+
+export const getCasks = async () => await brewAxios.get<Root>('/cask.json');
 
 type NewType = {
   url?: string;
