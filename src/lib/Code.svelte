@@ -126,19 +126,11 @@
     gap: 0 var(--font-mono-width);
     flex-wrap: wrap;
   }
-  .brew-install-line:hover {
-    color: white;
-  }
 
   .word {
     transform-origin: -25% 0%;
     z-index: 100;
     cursor: pointer;
     transition: all 0.2s;
-  }
-
-  .word:hover {
-    /* color: var(--color-red); */
-    text-decoration: line-through;
   }
 </style>

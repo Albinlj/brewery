@@ -16,7 +16,6 @@
   }
 
   const dispatch = createEventDispatcher();
-
   export let message: string;
 </script>
 
